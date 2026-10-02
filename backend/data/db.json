@@ -1,0 +1,93 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Farm Owner",
+      "email": "admin@farm.com",
+      "passwordHash": "$2b$10$57zMXGSOt1RlDDEw.NIx0u9o8ux86y0PNbmKzjz.Cx8TUfeIs6foW",
+      "role": "admin"
+    },
+    {
+      "id": 2,
+      "name": "Sale Employee",
+      "email": "employee@farm.com",
+      "passwordHash": "$2b$10$Fkdeaxv5WJKz.U4aJp95Y.V/kIBUn3qHL2OjAy.3W3L7M2khM9WSq",
+      "role": "employee"
+    },
+    {
+      "id": 11,
+      "name": "Rafaqat",
+      "email": "rafaqat@gmail.com",
+      "passwordHash": "$2b$10$ztl0hGrnC3neFOwoUrfhW.juDQnsm2OS7y3kNsFMj0B0curaB1k.u",
+      "role": "customer"
+    }
+  ],
+  "customers": [
+    {
+      "id": 9,
+      "userId": 11,
+      "name": "Rafaqat",
+      "phone": "",
+      "totalPurchases": 16400,
+      "paidCash": 10000,
+      "paidBank": 0,
+      "paidEasypaisa": 6200,
+      "openingBalance": 0,
+      "balance": 200,
+      "advanceAmount": 0
+    }
+  ],
+  "transactions": [
+    {
+      "id": 71,
+      "customerId": 9,
+      "date": "2026-10-02T20:06:09.229Z",
+      "quantityBought": 40,
+      "costPrice": 405,
+      "costManPrice": 16200,
+      "salePrice": 410,
+      "manPrice": 16400,
+      "mandiPrice": 0,
+      "paymentCash": 10000,
+      "paymentBank": 0,
+      "paymentEasypaisa": 6200,
+      "paymentTiming": "morning",
+      "totalAmount": 16400,
+      "totalPaid": 16200,
+      "remainingBalance": 200,
+      "overpaidAmount": 0,
+      "profit": 200,
+      "createdBy": 1
+    }
+  ],
+  "inventory": [
+    {
+      "id": 1,
+      "product": "Broiler Chicken",
+      "quantity": 470,
+      "costPrice": 550
+    },
+    {
+      "id": 2,
+      "product": "Feed",
+      "quantity": 100,
+      "costPrice": 3200
+    },
+    {
+      "id": 3,
+      "product": "Medicines",
+      "quantity": 40,
+      "costPrice": 1500
+    }
+  ],
+  "settings": {
+    "mandiMarkupPerKg": 20,
+    "previousBalance": 78987
+  },
+  "nextIds": {
+    "users": 12,
+    "customers": 10,
+    "transactions": 73,
+    "inventory": 4
+  }
+}
