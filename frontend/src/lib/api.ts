@@ -1,6 +1,12 @@
-export const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:4000";
+export const API_URL =
+  process.env.NEXT_PUBLIC_API_URL || "http://localhost:4000";
 
-export type AuthUser = { id: number; name: string; email: string; role: "admin" | "employee" | "customer" };
+export type AuthUser = {
+  id: number;
+  name: string;
+  email: string;
+  role: "admin" | "employee" | "customer";
+};
 
 export function getToken() {
   if (typeof window === "undefined") return "";
@@ -23,26 +29,35 @@ export function getUser(): AuthUser | null {
   return raw ? (JSON.parse(raw) as AuthUser) : null;
 }
 
-export async function apiFetch(path: string, options: RequestInit = {}) {
+export async function apiFetch(
+  path: string,
+  options: RequestInit = {}
+) {
   const token = getToken();
-  const headers: HeadersInit = {
-    "Content-Type": "application/json",
-    ...(options.headers || {}),
-  };
+
+  const headers = new Headers(options.headers);
+
+  headers.set("Content-Type", "application/json");
 
   if (token) {
-    headers.Authorization = `Bearer ${token}`;
+    headers.set("Authorization", `Bearer ${token}`);
   }
 
-  const res = await fetch(`${API_URL}${path}`, { ...options, headers });
+  const res = await fetch(`${API_URL}${path}`, {
+    ...options,
+    headers,
+  });
+
   if (!res.ok) {
     let message = "Request failed";
+
     try {
       const json = await res.json();
       message = json.message || message;
     } catch {
       // ignore
     }
+
     throw new Error(message);
   }
 
